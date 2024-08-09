@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+    <script src="page.js"></script>
+    <title>Calendrier</title>
+</head>
+<body>
+    <div class="page">
+        <div class="sidebar">
+            <div class="logo">Bonjour, Dawin</div>
+            <ul>
+                <li>Backlog</li>
+                <li onclick="window.location.href='//localhost:8000/board.php';">Tableau de bord</li>
+                <li class="active">Calendrier</li>
+                <li onclick="window.location.href='//localhost:8000/principale.html';">Mes projets</li>
+                <li>Deconnexion</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <header>
+                <h1>Calendrier</h1>
+            </header>
+            
+            <div id='calendar'></div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Code pour le calendrier
+                    var calendarEl = document.getElementById('calendar');
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth',
+                        locale: 'fr',
+                        headerToolbar: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        },
+                        events: [
+                            {
+                                title: 'Projet 1',
+                                start: '2024-08-09',
+                                end: '2024-08-11'
+                            },
+                            {
+                                title: 'Réunion',
+                                start: '2024-08-14T10:30:00',
+                                end: '2024-08-14T12:30:00'
+                            }
+                        ]
+                    });
+    calendar.render();
+});
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>
